@@ -1,0 +1,93 @@
+# Noctalia v5 configuration
+# Migrated from the previous v4 settings and adapted from LanRhyme/dotfiles
+
+[shell]
+lang = "zh-Hans"
+clipboard_enabled = true
+polkit_agent = true
+setup_wizard_enabled = false
+telemetry_enabled = false
+
+[shell.launcher]
+app_grid = true
+categories = true
+session_search = true
+sort_by_usage = false
+
+[shell.panel]
+launcher_placement = "floating"
+launcher_position = "center"
+clipboard_placement = "floating"
+clipboard_position = "center"
+control_center_placement = "attached"
+session_placement = "attached"
+wallpaper_placement = "attached"
+
+[bar]
+order = ["default"]
+
+[bar.default]
+enabled = true
+position = "top"
+thickness = 34
+background_opacity = 0.93
+radius = 12
+margin_ends = 4
+margin_edge = 4
+padding = 8
+widget_spacing = 6
+shadow = true
+reserve_space = true
+start = ["launcher", "clock", "cpu", "ram", "active_window", "media"]
+center = ["workspaces"]
+end = ["tray", "notifications", "battery", "volume", "brightness", "control-center", "session"]
+
+[dock]
+enabled = true
+position = "bottom"
+auto_hide = true
+reserve_space = false
+background_opacity = 0.61
+inactive_opacity = 0.46
+launcher_position = "none"
+
+[desktop_widgets]
+enabled = false
+
+[location]
+auto_locate = false
+address = "Fuzhou, Fujian, China"
+
+[weather]
+enabled = true
+unit = "metric"
+effects = true
+
+[theme]
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "muted"
+
+[wallpaper]
+enabled = true
+directory = "/usr/share/wallpapers/cachyos-wallpapers"
+fill_mode = "crop"
+transition = ["fade", "wipe", "disc", "stripes", "zoom", "honeycomb"]
+transition_duration = 1500
+edge_smoothness = 0.14
+transition_on_startup = false
+
+[wallpaper.default]
+path = "/usr/share/wallpapers/cachyos-wallpapers/CachyOS_Moon.jpg"
+
+[wallpaper.automation]
+enabled = false
+
+[notification]
+position = "top_right"
+
+[osd]
+position = "top_right"
+
+[plugins]
+enabled = []
