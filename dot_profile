@@ -1,3 +1,6 @@
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 export EDITOR="micro"
 export VISUAL="$EDITOR"
+
+# Added by Toolbox App
+export PATH="$PATH:/home/zhoujk/.local/share/JetBrains/Toolbox/scripts"

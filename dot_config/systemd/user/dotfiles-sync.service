@@ -1,0 +1,16 @@
+[Unit]
+Description=Safely sync chezmoi dotfiles to the remote repository
+ConditionPathIsDirectory=%h/.local/share/chezmoi/.git
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/dotfiles-sync --auto
+Environment=GIT_TERMINAL_PROMPT=0
+Nice=10
+IOSchedulingClass=idle
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+TimeoutStartSec=10min

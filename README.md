@@ -22,7 +22,13 @@ dotfiles-sync --commit "chore: 更新桌面配置"
 dotfiles-sync --push
 ```
 
-除非明确指定，否则 `dotfiles-sync` 不会提交或推送改动。
+默认命令不会提交或推送改动。`dotfiles-sync.timer` 每两小时调用一次受保护的 `--auto` 模式；该模式会依次检查远端分支、重新收录已托管配置、扫描高置信度秘密、执行 `dotfiles-doctor`、提交并推送。远端领先或分叉、配置检查失败、发现秘密或已有任务运行时会停止，不会强制覆盖。
+
+```bash
+systemctl --user status dotfiles-sync.timer
+systemctl --user list-timers dotfiles-sync.timer
+journalctl --user -u dotfiles-sync.service
+```
 
 ## 主题架构
 
