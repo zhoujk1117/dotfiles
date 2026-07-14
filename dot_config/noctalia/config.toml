@@ -28,15 +28,16 @@ order = ["default"]
 
 [bar.default]
 enabled = true
-position = "left"
-thickness = 46
+position = "top"
+thickness = 36
 background_opacity = 0.93
 radius = 12
-margin_ends = 4
-margin_edge = 4
+margin_ends = 0
+margin_edge = 2
+margin_opposite_edge = 2
 padding = 6
 widget_spacing = 6
-shadow = true
+shadow = false
 reserve_space = true
 start = ["launcher", "clock", "cpu", "ram"]
 center = ["workspaces"]
@@ -64,7 +65,7 @@ unit = "metric"
 effects = true
 
 [theme]
-mode = "dark"
+mode = "light"
 source = "wallpaper"
 wallpaper_scheme = "muted"
 
@@ -84,7 +85,7 @@ edge_smoothness = 0.14
 transition_on_startup = false
 
 [wallpaper.default]
-path = "/usr/share/wallpapers/cachyos-wallpapers/CachyOS_Moon.jpg"
+path = "/usr/share/wallpapers/cachyos-wallpapers/wave.png"
 
 [wallpaper.automation]
 enabled = false

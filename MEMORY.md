@@ -10,6 +10,7 @@
 ## Design decisions
 
 - Noctalia uses the muted wallpaper palette and its native v5 template engine
+- The current Noctalia preference is a compact 36 px top bar, light mode, and the CachyOS `wave.png` wallpaper
 - Dynamic templates cover Niri, Alacritty, Starship, btop, GTK 3, and GTK 4
 - Niri keeps machine-specific output placement while adopting the reference repository's soft animations, compact gaps, and translucent blur
 - The reference repository's broad Python theme writer and automatic two-hour Git push are intentionally not used
