@@ -8,6 +8,7 @@ After=network-online.target
 Type=oneshot
 ExecStart=%h/.local/bin/dotfiles-sync --auto
 Environment=GIT_TERMINAL_PROMPT=0
+Environment="GIT_SSH_COMMAND=/usr/bin/ssh -F /dev/null -o BatchMode=yes"
 Nice=10
 IOSchedulingClass=idle
 NoNewPrivileges=true
