@@ -1,10 +1,8 @@
-# Personal CachyOS dotfiles
+# 个人 CachyOS 配置
 
-A portable chezmoi configuration for CachyOS, Niri, Noctalia v5, zsh, Alacritty, Starship, Fcitx5, fastfetch, btop, fish, and micro
+一套可移植的 chezmoi 配置，适用于 CachyOS、Niri、Noctalia v5、zsh、Alacritty、Starship、Fcitx5、fastfetch、btop、fish 和 micro。
 
-The visual direction is adapted from [LanRhyme/dotfiles](https://github.com/LanRhyme/dotfiles), with machine identities, credentials, caches, old Noctalia v4 state, NVIDIA settings, and unsafe theme side effects removed
-
-## Bootstrap
+## 初始化
 
 ```bash
 sudo pacman -S --needed chezmoi git
@@ -12,24 +10,24 @@ chezmoi init --apply YOUR_GITHUB_USER/YOUR_REPOSITORY
 ~/.local/bin/dotfiles-packages --install
 ```
 
-Log out and back in after the first installation so environment variables and the Niri session are refreshed
+首次安装后请注销并重新登录，以刷新环境变量和 Niri 会话。
 
-## Daily workflow
+## 日常使用
 
 ```bash
 chezmoi diff
 chezmoi apply
 dotfiles-sync
-dotfiles-sync --commit "chore: update desktop configuration"
+dotfiles-sync --commit "chore: 更新桌面配置"
 dotfiles-sync --push
 ```
 
-`dotfiles-sync` never commits or pushes unless explicitly requested
+除非明确指定，否则 `dotfiles-sync` 不会提交或推送改动。
 
-## Theme architecture
+## 主题架构
 
-Noctalia owns the wallpaper palette and generates small theme fragments for Niri, Alacritty, Starship, btop, GTK 3, and GTK 4. Chezmoi owns the structural application configuration. Generated files have a checked-in fallback so a fresh machine remains usable before Noctalia starts
+Noctalia 管理壁纸调色板，并为 Niri、Alacritty、Starship、btop、GTK 3 和 GTK 4 生成小型主题片段。Chezmoi 管理应用程序的结构性配置。生成文件均有纳入版本控制的备用版本，因此新设备在 Noctalia 启动前仍可正常使用。
 
-## Security boundaries
+## 安全边界
 
-The repository excludes Noctalia runtime state, GitHub authentication, KDE Connect certificates, application caches, shell history, environment files, and private keys. Run `dotfiles-doctor` and inspect `git diff --cached` before publishing
+本仓库不包含 Noctalia 运行时状态、GitHub 身份认证信息、KDE Connect 证书、应用程序缓存、shell 历史记录、环境文件和私钥。发布前请运行 `dotfiles-doctor`，并检查 `git diff --cached`。
