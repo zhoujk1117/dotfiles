@@ -1,0 +1,71 @@
+# A neutral Warp-inspired dark palette, kept independent from Noctalia.
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.primary]
+background = "#181818"
+foreground = "#d8d8d8"
+dim_foreground = "#a8a8a8"
+bright_foreground = "#f8f8f8"
+
+[colors.cursor]
+text = "#181818"
+cursor = "#7cafc2"
+
+[colors.vi_mode_cursor]
+text = "#181818"
+cursor = "#ba8baf"
+
+[colors.selection]
+text = "#f8f8f8"
+background = "#3a5159"
+
+[colors.search.matches]
+foreground = "#181818"
+background = "#f7ca88"
+
+[colors.search.focused_match]
+foreground = "#181818"
+background = "#7cafc2"
+
+[colors.footer_bar]
+foreground = "#d8d8d8"
+background = "#383838"
+
+[colors.hints.start]
+foreground = "#181818"
+background = "#a1b56c"
+
+[colors.hints.end]
+foreground = "#181818"
+background = "#7cafc2"
+
+[colors.normal]
+black = "#181818"
+red = "#ab4642"
+green = "#a1b56c"
+yellow = "#f7ca88"
+blue = "#7cafc2"
+magenta = "#ba8baf"
+cyan = "#86c1b9"
+white = "#d8d8d8"
+
+[colors.bright]
+black = "#585858"
+red = "#cc6666"
+green = "#b5bd68"
+yellow = "#f0c674"
+blue = "#81a2be"
+magenta = "#b294bb"
+cyan = "#8abeb7"
+white = "#f8f8f8"
+
+[colors.dim]
+black = "#181818"
+red = "#8f3c39"
+green = "#829457"
+yellow = "#c7a36f"
+blue = "#6690a0"
+magenta = "#98728f"
+cyan = "#6d9e97"
+white = "#a8a8a8"

@@ -1,35 +1,20 @@
 "$schema" = "https://starship.rs/config-schema.json"
-palette = "noctalia"
+palette = "warp"
 add_newline = true
 command_timeout = 1000
 
-format = """
-[╭─](fg:overlay0)\
-$directory\
-$git_branch\
-$git_status\
-$fill\
-$c\
-$cpp\
-$golang\
-$java\
-$nodejs\
-$python\
-$rust\
-$cmd_duration\
-$time\
-$line_break\
-[╰─](fg:overlay0)\
-$character"""
+# Keep the prompt in step with Alacritty's fixed dark palette.
+format = "$directory$git_branch$git_status$character"
+right_format = "$c$cpp$golang$java$nodejs$python$rust$cmd_duration$time"
 
 [character]
-success_symbol = "[❯](bold mauve)"
+success_symbol = "[❯](bold cyan)"
 error_symbol = "[❯](bold red)"
-vimcmd_symbol = "[❮](bold green)"
+vimcmd_symbol = "[❮](bold mauve)"
 
 [directory]
 format = "[$path]($style) "
-style = "bold mauve"
+style = "bold blue"
 truncation_length = 3
 truncate_to_repo = false
 
@@ -38,19 +23,15 @@ Documents = "docs"
 Downloads = "dl"
 Pictures = "pics"
 
-[fill]
-symbol = "·"
-style = "overlay0"
-
 [git_branch]
 format = "[$symbol$branch]($style) "
 symbol = "git:"
-style = "cyan"
+style = "bold cyan"
 
 [git_status]
 format = "([$all_status$ahead_behind]($style))"
-style = "yellow"
-up_to_date = "[✓](green)"
+style = "bold yellow"
+up_to_date = "[✓](bold cyan)"
 untracked = "?[${count}]"
 modified = "![${count}]"
 staged = "+[${count}]"
@@ -61,27 +42,59 @@ diverged = "↑[${ahead_count}]↓[${behind_count}]"
 
 [cmd_duration]
 min_time = 500
-format = "[took $duration](overlay1) "
+format = "[took $duration](subtext1) "
 
 [time]
 disabled = false
-format = "[$time](text) "
+format = "[$time](subtext0)"
 time_format = "%H:%M"
 
 [c]
-format = "[c:$version](green) "
+format = "[c:$version](mauve) "
 [cpp]
-format = "[cpp:$version](green) "
+format = "[cpp:$version](mauve) "
 [golang]
-format = "[go:$version](green) "
+format = "[go:$version](mauve) "
 [java]
-format = "[java:$version](green) "
+format = "[java:$version](mauve) "
 [nodejs]
-format = "[node:$version](green) "
+format = "[node:$version](mauve) "
 [python]
-format = "[py:$version](green) "
+format = "[py:$version](mauve) "
 [rust]
-format = "[rs:$version](green) "
+format = "[rs:$version](mauve) "
+
+[palettes.warp]
+blue      = "#7cafc2"
+red       = "#cc6666"
+green     = "#a1b56c"
+yellow    = "#f7ca88"
+cyan      = "#86c1b9"
+magenta   = "#ba8baf"
+white     = "#f8f8f8"
+black     = "#181818"
+rosewater = "#d8d8d8"
+flamingo  = "#cc6666"
+pink      = "#c89fbc"
+mauve     = "#ba8baf"
+maroon    = "#ab4642"
+peach     = "#f0c674"
+teal      = "#8abeb7"
+sky       = "#86c1b9"
+sapphire  = "#7cafc2"
+lavender  = "#9abfd0"
+text      = "#d8d8d8"
+subtext1  = "#b8b8b8"
+subtext0  = "#686868"
+overlay2  = "#585858"
+overlay1  = "#484848"
+overlay0  = "#383838"
+surface2  = "#303030"
+surface1  = "#282828"
+surface0  = "#202020"
+base      = "#181818"
+mantle    = "#141414"
+crust     = "#101010"
 
 # >>> NOCTALIA STARSHIP PALETTE >>>
 # Noctalia Starship Palette
@@ -89,40 +102,40 @@ format = "[rs:$version](green) "
 
 [palettes.noctalia]
 # Standard colors
-blue      = "#505462"
-red       = "#fd4663"
-green     = "#627a84"
-yellow    = "#5a6572"
-cyan      = "#444c56"
-magenta   = "#415158"
-white     = "#191a1a"
-black     = "#c2c9cb"
+blue      = "#0f62fe"
+red       = "#ee5396"
+green     = "#42be65"
+yellow    = "#ffab91"
+cyan      = "#08bdba"
+magenta   = "#be95ff"
+white     = "#ffffff"
+black     = "#525252"
 
 # Extended palette (Catppuccin-compatible names)
-rosewater = "#5a6572"
-flamingo  = "#fd4663"
-pink      = "#415158"
-mauve     = "#415158"
-maroon    = "#fd4663"
-peach     = "#5a6572"
-teal      = "#444c56"
-sky       = "#444c56"
-sapphire  = "#505462"
-lavender  = "#415158"
+rosewater = "#ffab91"
+flamingo  = "#ff7eb6"
+pink      = "#673ab7"
+mauve     = "#be95ff"
+maroon    = "#ff7eb6"
+peach     = "#ffab91"
+teal      = "#08bdba"
+sky       = "#08bdba"
+sapphire  = "#0f62fe"
+lavender  = "#673ab7"
 
 # Text shades
-text      = "#191a1a"
-subtext1  = "#191a1a"
-subtext0  = "#7c8588"
+text      = "#161616"
+subtext1  = "#ffffff"
+subtext0  = "#161616"
 
 # Surface shades
-overlay2  = "#7c8588"
-overlay1  = "#7c8588"
-overlay0  = "#c2c9cb"
-surface2  = "#c2c9cb"
-surface1  = "#c2c9cb"
-surface0  = "#e3e6e8"
-base      = "#e3e6e8"
-mantle    = "#e3e6e8"
-crust     = "#e3e6e8"
+overlay2  = "#161616"
+overlay1  = "#161616"
+overlay0  = "#525252"
+surface2  = "#525252"
+surface1  = "#525252"
+surface0  = "#f2f4f8"
+base      = "#f2f4f8"
+mantle    = "#f2f4f8"
+crust     = "#f2f4f8"
 # <<< NOCTALIA STARSHIP PALETTE <<<
