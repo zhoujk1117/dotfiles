@@ -1,11 +1,62 @@
-source /usr/share/cachyos-zsh-config/cachyos-config.zsh
+# Managed by chezmoi
+
+typeset -U path PATH
+path=("$HOME/.local/bin" "$HOME/.cargo/bin" $path)
+
+export EDITOR="micro"
+export VISUAL="$EDITOR"
+export PAGER="less"
+export LESS="-R"
+
+HISTFILE="${XDG_STATE_HOME:-$HOME/.local/state}/zsh/history"
+HISTSIZE=50000
+SAVEHIST=50000
+mkdir -p "${HISTFILE:h}"
+setopt append_history share_history hist_ignore_all_dups hist_reduce_blanks
+setopt auto_cd interactive_comments
+
+autoload -Uz compinit
+mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump-${ZSH_VERSION}"
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+if (( $+commands[fzf] )) && [[ -t 0 ]]; then
+  source <(fzf --zsh)
+fi
+
+[[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -r /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh ]] && \
+  source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+[[ -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
 
-# >>> Codex installer >>>
-export PATH="/home/zhoujk/.local/bin:$PATH"
-# <<< Codex installer <<<
-export PATH=$HOME/.local/bin:$PATH
-POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+if (( $+commands[zoxide] )); then
+  eval "$(zoxide init zsh)"
+fi
+
+if (( $+commands[starship] )); then
+  eval "$(starship init zsh)"
+else
+  PROMPT='%F{cyan}%~%f %# '
+fi
+
+if (( $+commands[eza] )); then
+  alias ls='eza --icons=auto --group-directories-first'
+  alias ll='eza -lah --icons=auto --group-directories-first --git'
+  alias tree='eza --tree --icons=auto'
+fi
+(( $+commands[bat] )) && alias bat='bat --paging=never'
+alias c='clear'
+alias g='git'
+
+[[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if (( $+commands[fastfetch] )) && [[ -z ${FASTFETCH_SHOWN:-} ]]; then
+  export FASTFETCH_SHOWN=1
+  fastfetch
+fi

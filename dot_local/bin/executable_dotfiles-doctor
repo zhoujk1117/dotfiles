@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+failures=0
+check() {
+  local name=$1
+  shift
+  printf '%-26s' "$name"
+  if "$@" >/dev/null 2>&1; then
+    echo "ok"
+  else
+    echo "failed"
+    failures=$((failures + 1))
+  fi
+}
+
+check "chezmoi source" test -d "$(chezmoi source-path)"
+check "zsh syntax" zsh -n "$HOME/.zshrc"
+check "fish syntax" fish -n "$HOME/.config/fish/config.fish"
+check "Niri config" niri validate
+check "Noctalia config" noctalia config validate "$HOME/.config/noctalia"
+check "Noctalia JSON" jq empty "$HOME/.config/noctalia/plugins.json"
+check "fastfetch config" fastfetch --config "$HOME/.config/fastfetch/config.jsonc" --pipe
+check "Starship config" env STARSHIP_CONFIG="$HOME/.config/starship.toml" starship print-config
+check "Alacritty TOML" python -c 'import pathlib,tomllib; tomllib.loads(pathlib.Path.home().joinpath(".config/alacritty/alacritty.toml").read_text())'
+
+if ((failures > 0)); then
+  echo "$failures check(s) failed" >&2
+  exit 1
+fi
+
+echo "All dotfile checks passed"

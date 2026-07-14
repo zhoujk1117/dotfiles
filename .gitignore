@@ -1,0 +1,17 @@
+*.bak
+*.log
+*.tmp
+.env
+.env.*
+!.env.example
+**/Cache/
+**/cache/
+**/node_modules/
+
+# Credentials and volatile application state
+dot_config/gh/private_hosts.yml
+dot_config/kdeconnect/*pem
+dot_config/noctalia/colors.json
+dot_config/noctalia/settings.json
+dot_config/noctalia/plugins/*/settings.json
+dot_config/noctalia/plugins/*/cache/

@@ -8,6 +8,7 @@
         QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
         XDG_CURRENT_DESKTOP "niri"
         XDG_SESSION_TYPE "wayland"
+        _JAVA_AWT_WM_NONREPARENTING "1"
     }
 
     cursor {
@@ -22,4 +23,13 @@
 
     hotkey-overlay {
        skip-at-startup
+    }
+
+    overview {
+        workspace-shadow {
+            softness 60
+            spread 20
+            offset x=0 y=15
+            color "#00000080"
+        }
     }

@@ -1,0 +1,12 @@
+[init]
+    defaultBranch = main
+[core]
+    autocrlf = input
+[pull]
+    ff = only
+[fetch]
+    prune = true
+[rerere]
+    enabled = true
+[diff]
+    colorMoved = default

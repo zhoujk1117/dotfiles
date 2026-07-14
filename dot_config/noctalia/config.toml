@@ -28,22 +28,22 @@ order = ["default"]
 
 [bar.default]
 enabled = true
-position = "top"
-thickness = 34
+position = "left"
+thickness = 46
 background_opacity = 0.93
 radius = 12
 margin_ends = 4
 margin_edge = 4
-padding = 8
+padding = 6
 widget_spacing = 6
 shadow = true
 reserve_space = true
-start = ["launcher", "clock", "cpu", "ram", "active_window", "media"]
+start = ["launcher", "clock", "cpu", "ram"]
 center = ["workspaces"]
-end = ["tray", "notifications", "battery", "volume", "brightness", "control-center", "session"]
+end = ["active_window", "media", "tray", "notifications", "volume", "control-center", "session"]
 
 [dock]
-enabled = true
+enabled = false
 position = "bottom"
 auto_hide = true
 reserve_space = false
@@ -67,6 +67,12 @@ effects = true
 mode = "dark"
 source = "wallpaper"
 wallpaper_scheme = "muted"
+
+[theme.templates]
+builtin_ids = ["niri", "alacritty", "starship", "btop", "gtk3", "gtk4"]
+community_ids = []
+enable_builtin_templates = true
+enable_community_templates = false
 
 [wallpaper]
 enabled = true

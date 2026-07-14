@@ -1,0 +1,13 @@
+README.md
+AGENTS.md
+MEMORY.md
+.gitignore
+
+# Runtime state and machine credentials are never deployed from this repository
+.config/noctalia/settings.json
+.config/noctalia/colors.json
+.config/noctalia/plugins/*/settings.json
+.config/noctalia/plugins/*/cache/**
+.config/gh/hosts.yml
+.config/kdeconnect/*.pem
+.env
