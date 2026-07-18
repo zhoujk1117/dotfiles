@@ -3,9 +3,11 @@
 
 [shell]
 lang = "zh-Hans"
+font_family = "Noto Sans CJK SC"
 clipboard_enabled = true
 polkit_agent = true
 setup_wizard_enabled = false
+settings_show_advanced = true
 telemetry_enabled = false
 
 [shell.launcher]
@@ -19,9 +21,15 @@ launcher_placement = "floating"
 launcher_position = "center"
 clipboard_placement = "floating"
 clipboard_position = "center"
-control_center_placement = "attached"
+control_center_placement = "floating"
+control_center_position = "top_right"
 session_placement = "attached"
-wallpaper_placement = "attached"
+wallpaper_placement = "floating"
+wallpaper_position = "center"
+
+[backdrop]
+blur_intensity = 0.69
+tint_intensity = 0.0
 
 [bar]
 order = ["default"]
@@ -30,12 +38,23 @@ order = ["default"]
 enabled = true
 position = "top"
 thickness = 36
-background_opacity = 0.93
+background_opacity = 0.0
+border_width = 0.0
+capsule = true
+capsule_border = "outline"
+capsule_foreground = "secondary"
+capsule_opacity = 0.79
+capsule_padding = 10
+capsule_radius = 80
+capsule_thickness = 0.96
+font_family = "JetBrains Mono"
+panel_overlap = 12
 radius = 12
 margin_ends = 0
 margin_edge = 2
 margin_opposite_edge = 2
 padding = 6
+scale = 1.1
 widget_spacing = 6
 shadow = false
 reserve_space = true
@@ -44,7 +63,7 @@ center = ["workspaces"]
 end = ["active_window", "media", "tray", "notifications", "volume", "control-center", "session"]
 
 [dock]
-enabled = false
+enabled = true
 position = "bottom"
 auto_hide = true
 reserve_space = false
@@ -54,6 +73,9 @@ launcher_position = "none"
 
 [desktop_widgets]
 enabled = false
+
+[hooks]
+theme_mode_changed = ["/home/zhoujk/.config/noctalia/theme-sync.sh"]
 
 [location]
 auto_locate = false
@@ -65,9 +87,9 @@ unit = "metric"
 effects = true
 
 [theme]
-mode = "light"
+mode = "dark"
 source = "wallpaper"
-wallpaper_scheme = "muted"
+wallpaper_scheme = "m3-content"
 
 [theme.templates]
 builtin_ids = ["niri", "alacritty", "starship", "btop", "gtk3", "gtk4"]
@@ -77,7 +99,7 @@ enable_community_templates = false
 
 [wallpaper]
 enabled = true
-directory = "/usr/share/wallpapers/cachyos-wallpapers"
+directory = "/home/zhoujk/.local/share/NyxNiri/Wallpapers"
 fill_mode = "crop"
 transition = ["fade", "wipe", "disc", "stripes", "zoom", "honeycomb"]
 transition_duration = 1500
@@ -85,7 +107,7 @@ edge_smoothness = 0.14
 transition_on_startup = false
 
 [wallpaper.default]
-path = "/usr/share/wallpapers/cachyos-wallpapers/wave.png"
+path = "/home/zhoujk/.local/share/NyxNiri/Wallpapers/139396752_p0.jpg"
 
 [wallpaper.automation]
 enabled = false

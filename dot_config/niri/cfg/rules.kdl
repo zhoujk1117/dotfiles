@@ -1,5 +1,12 @@
+    blur {
+        passes 2
+        offset 2.0
+        noise 0.001
+        saturation 1.15
+    }
+
     window-rule {
-        geometry-corner-radius 8
+        geometry-corner-radius 12
         clip-to-geometry true
     }
 
@@ -14,11 +21,51 @@
     }
 
     window-rule {
+        match is-focused=false
+        opacity 0.85
+    }
+
+    window-rule {
         match app-id="org.kde.krita"
         opacity 1.0
         background-effect {
             blur false
         }
+    }
+
+    // Keep games and video workloads fully opaque and free of blur overhead.
+    window-rule {
+        match app-id=r#"^steam_app_.*$"#
+        match app-id=r#"^(gamescope|wine)$"#
+        match title=r#"(?i)genshin impact|zenless zone zero|victoria 3|minecraft|endfield"#
+        opacity 1.0
+        draw-border-with-background false
+        background-effect {
+            blur false
+        }
+    }
+
+    window-rule {
+        match app-id=r#"^(org\.kde\.kdenlive|mpv|kazumi)$"#
+        opacity 1.0
+        background-effect {
+            blur false
+        }
+    }
+
+    window-rule {
+        match title=r#"^(Picture-in-Picture|画中画)$"#
+        open-floating true
+        opacity 1.0
+        default-floating-position x=20 y=20 relative-to="bottom-right"
+        background-effect {
+            blur false
+        }
+    }
+
+    window-rule {
+        match app-id="dev.noctalia.Noctalia"
+        open-floating true
     }
 
     window-rule {
@@ -42,4 +89,24 @@
     layer-rule {
         match namespace="^noctalia-wallpaper*"
         place-within-backdrop true
+    }
+
+    layer-rule {
+        match namespace="^quickshell$"
+        place-within-backdrop true
+    }
+
+    layer-rule {
+        match namespace="^mpvpaper$"
+        place-within-backdrop true
+    }
+
+    layer-rule {
+        match namespace="^noctalia-bar-bar$"
+        opacity 1.0
+        geometry-corner-radius 0
+        shadow { off; }
+        background-effect {
+            blur false
+        }
     }
